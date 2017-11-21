@@ -1,0 +1,16 @@
+C:\Backup\repos\TaskManager\TaskManager\bin\Release\TaskManager.exe.config
+C:\Backup\repos\TaskManager\TaskManager\bin\Release\TaskManager.exe
+C:\Backup\repos\TaskManager\TaskManager\bin\Release\TaskManager.pdb
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\MainWindow.g.cs
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManagerWindow.g.cs
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\App.g.cs
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager_MarkupCompile.cache
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager_MarkupCompile.lref
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\MainWindow.baml
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManagerWindow.baml
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.g.resources
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.Properties.Resources.resources
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.csproj.GenerateResource.Cache
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.csproj.CoreCompileInputs.cache
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.exe
+C:\Backup\repos\TaskManager\TaskManager\obj\Release\TaskManager.pdb

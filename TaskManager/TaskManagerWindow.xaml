@@ -1,0 +1,203 @@
+﻿<Window x:Class="TaskManager.TaskManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager"
+        mc:Ignorable="d"
+        Title="Диспетчер задач" Height="600" Width="610" ResizeMode="NoResize" 
+        Icon="C:\Backup\repos\TaskManager\TaskManager\taskmanagerlogo.png">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="543"  VerticalAlignment="Top" Width="580" Margin="10,10,0,0">
+            <TabItem Header="Очередь">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="dgProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="470" Width="575" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                            <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                            <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                            <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                            <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                            <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                            <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Name="labelProcessesInQueueCount" Content="Процессов в очереди: " HorizontalAlignment="Left" Margin="372,470,0,-1" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Отклоненные">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="dgCanceledProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="470" Width="575" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                            <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                            <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="90" />
+                            <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="95" />
+                            <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                            <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                            <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Name="labelProcssesCanceledCount" Content="Отклоненных процессов: " HorizontalAlignment="Left" Margin="372,470,0,-1" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Выполненные">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="dgCompletedProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="470" Width="575" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                            <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                            <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                            <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                            <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                            <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                            <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                            <DataGridTextColumn Header="Выполнен" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCompleted}" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Name="labelProcessesCompletedCount" Content="Выполненных процессов: " HorizontalAlignment="Left" Margin="372,470,0,-1" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="В процессе выполнения">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="dgExecuteProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="515" Width="575" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                            <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                            <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                            <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                            <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                            <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                            <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ресурс 1">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="495" Margin="-1,0,0,0" VerticalAlignment="Top" Width="575">
+                        <TabItem Header="Очередь">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResourceQueue1ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Выполнение">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResource1ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ресурс 2">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="495" Margin="-1,0,0,0" VerticalAlignment="Top" Width="575">
+                        <TabItem Header="Очередь">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResourceQueue2ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Выполнение">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResource2ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ресурс 3">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="495" Margin="-1,0,0,0" VerticalAlignment="Top" Width="575">
+                        <TabItem Header="Очередь">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResourceQueue3ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Выполнение">
+                            <Grid Background="#FFE5E5E5" Margin="10,2,4,4">
+                                <DataGrid Name="dgResource3ProcessList" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" VerticalAlignment="Top" Height="461" Width="555" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Id}" Width="40" />
+                                        <DataGridTextColumn Header="Имя" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Name}" Width="90" />
+                                        <DataGridTextColumn Header="Приоритет" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=Priority}" Width="95" />
+                                        <DataGridTextColumn Header="Статус" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=StatusString}" Width="90" />
+                                        <DataGridTextColumn Header="RAM" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=RAM}" Width="50"/>
+                                        <DataGridTextColumn Header="Такты" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=CountOfTactsAll}" Width="50" />
+                                        <DataGridTextColumn Header="Время добавления" CanUserResize="False" CanUserReorder="False" CanUserSort="False" Binding="{Binding Path=TimeOfCreate}" Width="150" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Сервис">
+                <Grid Background="#FFE5E5E5">
+                    <Button Name="btGenerateTProcess" Content="Сгенерировать один процесс" HorizontalAlignment="Left" Margin="177,52,0,0" VerticalAlignment="Top" Width="209" Click="btGenerateTProcess_Click"/>
+                    <Button x:Name="btGenerate10TProcess" Content="Сгенерировать десять процессов" HorizontalAlignment="Left" Margin="177,90,0,0" VerticalAlignment="Top" Width="209" Click="btGenerate10TProcess_Click"/>
+                    <Button x:Name="btGenerate100TProcess" Content="Сгенерировать сто процессов" HorizontalAlignment="Left" Margin="177,129,0,0" VerticalAlignment="Top" Width="209" Click="btGenerate100TProcess_Click"/>
+                    <Label Content="Сведения об устройстве: " HorizontalAlignment="Left" Margin="209,176,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelCountRAM" Content="Общее количество RAM: " HorizontalAlignment="Left" Margin="177,207,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelCountRAMFree" Content="Свободное количество RAM: " HorizontalAlignment="Left" Margin="177,233,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelCountRAMUsed" Content="Использовано RAM: " HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelCPUFreq" Content="Частота процессора: " HorizontalAlignment="Left" Margin="177,285,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btSetConfig" Content="Изменить конфигурацию" HorizontalAlignment="Left" Margin="177,331,0,0" VerticalAlignment="Top" Width="209" Click="btSetConfig_Click"/>
+                    <Label Name="labelDelayCompleted" Content="Среднее время для выполнения: " HorizontalAlignment="Left" Margin="45,378,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelDelayToStart" Content="Среднее время для начала выполнения: " HorizontalAlignment="Left" Margin="45,409,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Сведения об устройстве: " HorizontalAlignment="Left" Margin="209,176,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
